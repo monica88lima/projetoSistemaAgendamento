@@ -13,7 +13,7 @@ namespace SistemaAgendamentoIndividual.Metodos
         public Medico_Especialidade()
         {
             var random = new Random();
-            for (int i = 1; i == 25; i++)
+            for (int i = 1; i <= 25; i++)
             {                
                 var medicoId = random.Next(1, 42);
                 LstMedico_Especialidade.Add(new Entidades.Medico_Especialidade() { Id = i, EspecialidadeId = i, MedicoId = medicoId });

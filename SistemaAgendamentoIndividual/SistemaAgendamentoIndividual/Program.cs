@@ -7,7 +7,7 @@ namespace SistemaAgendamentoIndividual
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-            var t = new Medico_Especialidade();
+            var t = new Calendario_Metodo();
         }
     }
 }
