@@ -8,10 +8,19 @@ namespace SistemaAgendamentoIndividual.Entidades
 {
     public class Usuario : Base
     {
-        public string Nome { get; set; }
-        public long CPF { get; set; }
-        public DateTime Data_Nascimento { get; set; }
-        public long Celular { get; set; }
-        public char Sexo { get; set; }
+        public string Nome { get; protected set; }
+        public long CPF { get; protected set; }
+        public DateTime Data_Nascimento { get; protected set; }
+        public long Celular { get; protected set; }
+        public char Sexo { get; protected set; }
+        public Usuario(string nome, long cpf, DateTime dataNascimento, char sexo, long contato )
+        {
+            this.Nome = nome;
+            this.CPF = cpf;
+            this.Data_Nascimento = dataNascimento;
+            this.Sexo = sexo;
+            this.Celular = contato;
+            this.Id = 001;
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace SistemaAgendamentoIndividual.Metodos
         {
             var hora = 8;
             var data = 1;
+            var random = new Random();
             for (int i = 1; i <= 42; i++)
             {                
                 if (hora > 16)
@@ -30,7 +31,7 @@ namespace SistemaAgendamentoIndividual.Metodos
                         Data = DateTime.Now.AddDays(data).ToString("dd/MM/YYYY"),
                         Hora = new DateTime(2023, 12, 1, hora, 0, 0).AddHours(i).ToString("HH:mm"),
                         Situacao = "l",
-                        MedicoId = i
+                        MedicoId = random.Next(1,42)
                     });
 
                 hora++;
