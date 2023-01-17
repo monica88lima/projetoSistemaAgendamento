@@ -1,0 +1,15 @@
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\bin\Debug\net6.0\SistemaAgendamentoIndividual.exe
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\bin\Debug\net6.0\SistemaAgendamentoIndividual.deps.json
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\bin\Debug\net6.0\SistemaAgendamentoIndividual.runtimeconfig.json
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\bin\Debug\net6.0\SistemaAgendamentoIndividual.dll
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\bin\Debug\net6.0\SistemaAgendamentoIndividual.pdb
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.csproj.AssemblyReference.cache
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.AssemblyInfoInputs.cache
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.AssemblyInfo.cs
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.csproj.CoreCompileInputs.cache
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.dll
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\refint\SistemaAgendamentoIndividual.dll
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.pdb
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\SistemaAgendamentoIndividual.genruntimeconfig.cache
+C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\obj\Debug\net6.0\ref\SistemaAgendamentoIndividual.dll

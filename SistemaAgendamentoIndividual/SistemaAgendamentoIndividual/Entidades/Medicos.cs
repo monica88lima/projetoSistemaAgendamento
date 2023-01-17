@@ -17,5 +17,7 @@ namespace SistemaAgendamentoIndividual.Entidades
         public int Id_Procedimento { get; set; }
         public string Nome_Procedimento{ get; set; }
 
+        
+
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaAgendamentoIndividual.Entidades
+namespace SistemaAgendamentoIndividual.Metodos
 {
-    public class FormaPgto:Base
+    public class Agenda_Metodo
     {
-        public string Tipo { get; set; }
     }
 }

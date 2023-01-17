@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaAgendamentoIndividual.Entidades
 {
-    public class FormaPgto:Base
+    public class Medico_Especialidade : Base
     {
-        public string Tipo { get; set; }
+        public int MedicoId { get; set; }
+        public int EspecialidadeId { get; set; }
     }
 }

@@ -9,5 +9,8 @@ namespace SistemaAgendamentoIndividual.Entidades
     public class Especialidades:Base
     {
         public string Nome { get; set; }
+        public int ProcedimentoId { get; set; }
+        public bool PgtoConvenio { get; set; }
+        public bool PgtoParticular { get; set; }
     }
 }
