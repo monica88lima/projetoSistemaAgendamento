@@ -6,7 +6,42 @@ namespace SistemaAgendamentoIndividual
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Services.ConfiguraLayout.LayoutDoConsole();
+
+            try
+            {
+                
+                int retorno = 0;
+
+                do
+                {
+                    Console.WriteLine("Seja Bem Vindo(a):\nO que deseja fazer:\n(1)Criar Perfil\n(2)Acessar Perfil ");
+
+                    
+                    retorno = Services.ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
+
+                } while (retorno < 1 || retorno > 2);
+
+                if (retorno == 1)
+                {
+                    Services.NovoUsuario.IniciarNovoPerfil();
+
+                }
+                else if (retorno == 2)
+                {
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Services.ConfiguraLayout.ClearLayout();
+                Console.WriteLine(ex.Message);
+
+            }
+
+
             var t = new Calendario_Metodo();
         }
     }

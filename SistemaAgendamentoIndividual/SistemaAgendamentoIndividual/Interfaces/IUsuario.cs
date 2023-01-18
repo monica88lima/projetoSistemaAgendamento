@@ -8,5 +8,7 @@ namespace SistemaAgendamentoIndividual.Interfaces
 {
     public interface IUsuario
     {
+        void Cadastrar();
+        void ExibirMensagemBoasVindas();
     }
 }

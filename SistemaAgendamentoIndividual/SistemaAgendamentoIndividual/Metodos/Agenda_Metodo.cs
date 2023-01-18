@@ -8,5 +8,6 @@ namespace SistemaAgendamentoIndividual.Metodos
 {
     public class Agenda_Metodo
     {
+
     }
 }
