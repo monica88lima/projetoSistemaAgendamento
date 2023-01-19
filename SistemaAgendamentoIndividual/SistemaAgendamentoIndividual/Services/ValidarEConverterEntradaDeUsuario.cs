@@ -8,7 +8,7 @@ namespace SistemaAgendamentoIndividual.Services
 {
     public class ValidarEConverterEntradaDeUsuario
     {
-        public static int ConverterParaNumero()
+        public  static int ConverterParaNumero()
         {
             string valorDigitado = Console.ReadLine();
 

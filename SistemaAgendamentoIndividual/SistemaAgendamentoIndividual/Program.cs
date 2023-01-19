@@ -1,4 +1,5 @@
-﻿using SistemaAgendamentoIndividual.Metodos;
+﻿using SistemaAgendamentoIndividual.Interfaces;
+using SistemaAgendamentoIndividual.Metodos;
 
 namespace SistemaAgendamentoIndividual
 {
@@ -24,7 +25,8 @@ namespace SistemaAgendamentoIndividual
 
                 if (retorno == 1)
                 {
-                    Services.NovoUsuario.IniciarNovoPerfil();
+                    new Services.NovoUsuario(new Usuario_Metodo()).IniciarNovoPerfil();
+                    Services.Seletor.MostrarAlternativas();
 
                 }
                 else if (retorno == 2)

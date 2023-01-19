@@ -30,7 +30,10 @@ namespace SistemaAgendamentoIndividual.Metodos
 
         public void ExibirMensagemBoasVindas()
         {
-            string mensagem = $"Olá, {Nome.Split(" ")[0]}!!\nSeja Bem Vindo (a), vamos iniciar seu Agendamento?";
+            string mensagem = $"Olá, {Nome.Split(" ")[0]}!!\nSeja Bem Vindo (a), vamos iniciar seu Agendamento?\n" +
+                $"\n" +
+                $"O que deseja fazer?\n" +
+                $" ";
             Services.ConfiguraLayout.ClearLayout();
             Services.ConfiguraLayout.LayoutDoConsole();
 

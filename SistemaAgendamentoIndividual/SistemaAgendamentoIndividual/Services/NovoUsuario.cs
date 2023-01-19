@@ -1,4 +1,5 @@
-﻿using SistemaAgendamentoIndividual.Interfaces;
+﻿using SistemaAgendamentoIndividual.Entidades;
+using SistemaAgendamentoIndividual.Interfaces;
 using SistemaAgendamentoIndividual.Metodos;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,16 @@ namespace SistemaAgendamentoIndividual.Services
 {
     public class NovoUsuario 
     {
-        public static void IniciarNovoPerfil()
+        private readonly IUsuario? _iusuario;
+
+        public NovoUsuario(IUsuario? iusuario)
         {
-            IUsuario novoPerfil = new Usuario_Metodo();
-            novoPerfil.Cadastrar();
-            novoPerfil.ExibirMensagemBoasVindas();
+            _iusuario = iusuario;
+        }
+        public void IniciarNovoPerfil()
+        {
+            _iusuario.Cadastrar();
+            _iusuario.ExibirMensagemBoasVindas();
         }
       
     }
