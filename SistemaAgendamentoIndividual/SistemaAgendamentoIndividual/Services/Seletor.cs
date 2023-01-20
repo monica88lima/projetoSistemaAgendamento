@@ -9,10 +9,11 @@ namespace SistemaAgendamentoIndividual.Services
     public class Seletor
     {
 
-        public static List<string> Alternativas { get; set; } = new List<string>() { "Novo Agendamento", "Verificar Agendamentos Realizados" };
+        public static List<string> Alternativas { get; set; } = new List<string>() { "Novo Agendamento", "Verificar Agendamentos Realizados", "Sair" };
 
-        public static void MostrarAlternativas()
+        public static  void MostrarAlternativas()
         {
+            
             string descricaoMenu = "";
 
 
@@ -23,6 +24,7 @@ namespace SistemaAgendamentoIndividual.Services
 
             Console.WriteLine(descricaoMenu);
             EscolherMenu();
+            ConfiguraLayout.LayoutDoConsole();
 
         }
 
@@ -42,6 +44,11 @@ namespace SistemaAgendamentoIndividual.Services
                 Console.WriteLine("Menu não existe, por favor escolha um número válido.");
                 return EscolherMenu();
             }
+            //ConfiguraLayout.LayoutDoConsole();
+        }
+        private void IniciarSessao()
+        {
+
         }
 
     }

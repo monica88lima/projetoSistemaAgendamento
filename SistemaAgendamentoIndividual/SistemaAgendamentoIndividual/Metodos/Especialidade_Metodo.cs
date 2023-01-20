@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaAgendamentoIndividual.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,40 @@ namespace SistemaAgendamentoIndividual.Metodos
             LstEspecialidades.Add(new Entidades.Especialidades() { Id = 23, PgtoConvenio = true, PgtoParticular = true, Nome = "Raio X", ProcedimentoId = 3 });
             LstEspecialidades.Add(new Entidades.Especialidades() { Id = 24, PgtoConvenio = true, PgtoParticular = true, Nome = "Tomografia", ProcedimentoId = 3 });
             LstEspecialidades.Add(new Entidades.Especialidades() { Id = 25, PgtoConvenio = true, PgtoParticular = true, Nome = "Endoscopia", ProcedimentoId = 3 });
+
+        }
+        public void Filtro(int id_procedimento, bool convenio, bool particular)
+        {
+            //onde x é a classe. classe tem a propriedade id que e usada para localizar o procedimento
+            var filtroEspecialidades = LstEspecialidades.Where(x => x.ProcedimentoId == id_procedimento && (x.PgtoConvenio == convenio || x.PgtoParticular == particular)).ToList();
+
+            ExibirEspecialidade(filtroEspecialidades);
+        }
+        public void ExibirEspecialidade(List<Entidades.Especialidades> lstFiltrada)
+        {
+            string descricaoMenu = "";
+            Console.WriteLine("$Especialidades:\n");
+            foreach (var item in lstFiltrada)
+            {
+                descricaoMenu = $"({item.Id}) --- {item.Nome}";
+                Console.WriteLine(descricaoMenu);
+            }
+        }
+        public int ColetarEspecialidade()
+        {
+            Console.WriteLine("Escolha uma especialidade: ");
+            int id = ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
+            
+            var resultado = LstEspecialidades.Where(x => x.Id == id).FirstOrDefault();
+
+            if (resultado == null)
+            {
+                Console.WriteLine("Opção Inválida!");
+                ColetarEspecialidade();
+                //ExibirEspecialidade();
+            }
+            return id;
+            //esse retorno aqui tenho que mandar pra agenda metodo
 
         }
     }

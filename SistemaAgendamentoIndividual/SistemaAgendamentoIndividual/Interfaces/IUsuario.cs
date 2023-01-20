@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaAgendamentoIndividual.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace SistemaAgendamentoIndividual.Interfaces
 {
     public interface IUsuario
     {
-        void Cadastrar();
-        void ExibirMensagemBoasVindas();
+        Usuario Cadastrar();
+        void ExibirMensagemBoasVindas(string Nome);
     }
 }

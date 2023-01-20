@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAgendamentoIndividual.Entidades
 {
-    public class Agenda:Base
+    public  class Agenda:Base
     {
         public string Nome_Usuario { get; set; }
         public string Nome_Medico { get; set; }

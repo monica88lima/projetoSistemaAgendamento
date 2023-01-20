@@ -9,19 +9,20 @@ using System.Threading.Tasks;
 
 namespace SistemaAgendamentoIndividual.Services
 {
-    public class NovoUsuario 
+    public class NovoUsuario
     {
         private readonly IUsuario? _iusuario;
 
-        public NovoUsuario(IUsuario? iusuario)
+        public NovoUsuario()
         {
-            _iusuario = iusuario;
+            _iusuario = new Usuario_Metodo();
         }
-        public void IniciarNovoPerfil()
+        public Usuario IniciarNovoPerfil()
         {
-            _iusuario.Cadastrar();
-            _iusuario.ExibirMensagemBoasVindas();
+            var usr = _iusuario.Cadastrar();
+            _iusuario.ExibirMensagemBoasVindas(usr.Nome);
+            return usr;
         }
-      
+
     }
 }

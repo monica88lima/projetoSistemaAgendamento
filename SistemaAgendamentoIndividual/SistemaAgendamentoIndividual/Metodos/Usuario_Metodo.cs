@@ -8,27 +8,31 @@ using System.Threading.Tasks;
 
 namespace SistemaAgendamentoIndividual.Metodos
 {
-    public class Usuario_Metodo:Usuario, IUsuario
+    public class Usuario_Metodo: IUsuario
     {
-        public void Cadastrar()
+        public Usuario Cadastrar()
         {
             
-            this.Nome = Services.ValidarEConverterEntradaDeUsuario.ColetarNomeCompleto();
+            var Nome = Services.ValidarEConverterEntradaDeUsuario.ColetarNomeCompleto();
 
             Console.WriteLine("Digite seu CPF:");
-            this.CPF = Services.ValidarEConverterEntradaDeUsuario.ConverterParaLong();
+            var CPF = Services.ValidarEConverterEntradaDeUsuario.ConverterParaLong();
 
             Console.WriteLine("Digite seu numero de Telefone Celular: ");
-            this.Celular = Services.ValidarEConverterEntradaDeUsuario.ConverterParaLongCelular();
+            var Celular = Services.ValidarEConverterEntradaDeUsuario.ConverterParaLongCelular();
 
             Console.WriteLine("informe seu genero (1) Feminino (2) Masculino:");
-            this.Sexo = Services.ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
+            var Sexo = Services.ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
 
             Console.WriteLine("Informe sua Data de Nascimento: (dia/mês/ano):");
-            this.Data_Nascimento = Services.ValidarEConverterEntradaDeUsuario.ConverterParaDateTime();
+            var Data_Nascimento = Services.ValidarEConverterEntradaDeUsuario.ConverterParaDateTime();
+
+            return new Usuario(Nome, CPF,Data_Nascimento, Celular, Sexo);
+
+
         }
 
-        public void ExibirMensagemBoasVindas()
+        public void ExibirMensagemBoasVindas(string Nome)
         {
             string mensagem = $"Olá, {Nome.Split(" ")[0]}!!\nSeja Bem Vindo (a), vamos iniciar seu Agendamento?\n" +
                 $"\n" +
