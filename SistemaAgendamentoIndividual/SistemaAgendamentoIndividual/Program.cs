@@ -41,7 +41,9 @@ namespace SistemaAgendamentoIndividual
                     usuario_especialidade.Filtro(escolhaProced, frmPgto == 1, frmPgto == 2);
                     int espec = usuario_especialidade.ColetarEspecialidade();
 
-
+                    var medico = new Medicos_Metodo();
+                    medico.Filtro(espec);
+                    int dr = medico.ColetarNomeMedico();
 
 
                 }

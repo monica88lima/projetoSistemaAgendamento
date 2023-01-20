@@ -26,18 +26,18 @@ namespace SistemaAgendamentoIndividual.Metodos
             LstEspecialidades.Add(new Entidades.Especialidades() { Id = 11, PgtoConvenio = true, PgtoParticular = true, Nome = "Pneumologista", ProcedimentoId = 1 });
             LstEspecialidades.Add(new Entidades.Especialidades() { Id = 12, PgtoConvenio = true, PgtoParticular = true, Nome = "Reumatologista", ProcedimentoId = 1 });
             LstEspecialidades.Add(new Entidades.Especialidades() { Id = 13, PgtoConvenio = true, PgtoParticular = true, Nome = "Urologista", ProcedimentoId = 1 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 14, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Geral", ProcedimentoId = 2 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 15, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Cardiovascular", ProcedimentoId = 2 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 16, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Pediátrica", ProcedimentoId = 2 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 17, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Vascular", ProcedimentoId = 2 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 18, PgtoConvenio = false, PgtoParticular = true, Nome = "Cirurgia Plástica", ProcedimentoId = 2 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 19, PgtoConvenio = true, PgtoParticular = true, Nome = "Patologia clínica/medicina laboratorial", ProcedimentoId = 3 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 20, PgtoConvenio = true, PgtoParticular = true, Nome = "Eletrocardiograma", ProcedimentoId = 3 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 21, PgtoConvenio = true, PgtoParticular = true, Nome = "Ultrassom", ProcedimentoId = 3 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 22, PgtoConvenio = true, PgtoParticular = true, Nome = "Ressonância", ProcedimentoId = 3 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 23, PgtoConvenio = true, PgtoParticular = true, Nome = "Raio X", ProcedimentoId = 3 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 24, PgtoConvenio = true, PgtoParticular = true, Nome = "Tomografia", ProcedimentoId = 3 });
-            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 25, PgtoConvenio = true, PgtoParticular = true, Nome = "Endoscopia", ProcedimentoId = 3 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 14, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Geral", ProcedimentoId = 3 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 15, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Cardiovascular", ProcedimentoId = 3 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 16, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Pediátrica", ProcedimentoId = 3 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 17, PgtoConvenio = true, PgtoParticular = true, Nome = "Cirurgia Vascular", ProcedimentoId = 3 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 18, PgtoConvenio = false, PgtoParticular = true, Nome = "Cirurgia Plástica", ProcedimentoId = 3 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 19, PgtoConvenio = true, PgtoParticular = true, Nome = "Patologia clínica/medicina laboratorial", ProcedimentoId = 2 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 20, PgtoConvenio = true, PgtoParticular = true, Nome = "Eletrocardiograma", ProcedimentoId = 2 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 21, PgtoConvenio = true, PgtoParticular = true, Nome = "Ultrassom", ProcedimentoId = 2 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 22, PgtoConvenio = true, PgtoParticular = true, Nome = "Ressonância", ProcedimentoId = 2 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 23, PgtoConvenio = true, PgtoParticular = true, Nome = "Raio X", ProcedimentoId = 2 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 24, PgtoConvenio = true, PgtoParticular = true, Nome = "Tomografia", ProcedimentoId = 2 });
+            LstEspecialidades.Add(new Entidades.Especialidades() { Id = 25, PgtoConvenio = true, PgtoParticular = true, Nome = "Endoscopia", ProcedimentoId = 2 });
 
         }
         public void Filtro(int id_procedimento, bool convenio, bool particular)
@@ -50,7 +50,7 @@ namespace SistemaAgendamentoIndividual.Metodos
         public void ExibirEspecialidade(List<Entidades.Especialidades> lstFiltrada)
         {
             string descricaoMenu = "";
-            Console.WriteLine("$Especialidades:\n");
+            Console.WriteLine("Especialidades:\n");
             foreach (var item in lstFiltrada)
             {
                 descricaoMenu = $"({item.Id}) --- {item.Nome}";

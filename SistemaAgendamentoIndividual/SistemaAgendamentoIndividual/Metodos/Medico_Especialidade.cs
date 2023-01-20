@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaAgendamentoIndividual.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,15 @@ namespace SistemaAgendamentoIndividual.Metodos
                 var medicoId = random.Next(1, 42);
                 LstMedico_Especialidade.Add(new Entidades.Medico_Especialidade() { Id = i, EspecialidadeId = i, MedicoId = medicoId });
             }
+
         }
+        public void Filtro(int id_especialidade,int id_medico)
+        {
+            //onde x é a classe. classe tem a propriedade id que e usada para localizar o procedimento
+            var filtroMedico = LstMedico_Especialidade.Where(x => x.EspecialidadeId == id_especialidade && x.MedicoId == id_medico ).ToList();
+
+            
+        }
+        
     }
 }
