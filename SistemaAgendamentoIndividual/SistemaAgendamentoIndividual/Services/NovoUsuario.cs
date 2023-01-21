@@ -19,9 +19,9 @@ namespace SistemaAgendamentoIndividual.Services
         }
         public Usuario IniciarNovoPerfil()
         {
-            var usr = _iusuario.Cadastrar();
-            _iusuario.ExibirMensagemBoasVindas(usr.Nome);
-            return usr;
+            var usuarioCriado= _iusuario.Cadastrar();
+            _iusuario.ExibirMensagemBoasVindas(usuarioCriado.Nome);
+            return usuarioCriado;
         }
 
     }

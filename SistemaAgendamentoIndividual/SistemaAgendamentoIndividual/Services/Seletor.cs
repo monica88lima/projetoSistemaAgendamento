@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaAgendamentoIndividual.Services.CRUD;
+using 
 
 namespace SistemaAgendamentoIndividual.Services
 {
@@ -23,7 +25,7 @@ namespace SistemaAgendamentoIndividual.Services
             }
 
             Console.WriteLine(descricaoMenu);
-            EscolherMenu();
+            IniciarSessaoPosEscolha(EscolherMenu());
             ConfiguraLayout.LayoutDoConsole();
 
         }
@@ -46,8 +48,19 @@ namespace SistemaAgendamentoIndividual.Services
             }
             //ConfiguraLayout.LayoutDoConsole();
         }
-        private void IniciarSessao()
+        private static void IniciarSessaoPosEscolha(string alternativaEscolhida)
         {
+            switch (alternativaEscolhida)
+            {
+                case "Novo Agendamento":
+                    CRUD.Agendar.CriarAgendamento();
+                    break;
+                   
+                   
+
+                default:
+                    break;
+            }
 
         }
 

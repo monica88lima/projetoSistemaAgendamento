@@ -1,4 +1,5 @@
 ﻿using SistemaAgendamentoIndividual.Entidades;
+using SistemaAgendamentoIndividual.Interfaces;
 using SistemaAgendamentoIndividual.Services;
 using SistemaAgendamentoIndividual.Services.CRUD;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAgendamentoIndividual.Metodos
 {
-    public class FormaPgto_Metodo
+    public class FormaPgto_Metodo:IForma_Pgto
     {
         public List<Entidades.FormaPgto> LstFormaPgto { get; set; } = new();
         public FormaPgto_Metodo()
@@ -36,7 +37,7 @@ namespace SistemaAgendamentoIndividual.Metodos
 
             return retorno;
         }
-        private  void ColetarFormaPgto(int id)
+        public void ColetarFormaPgto(int id)
         {
            
             var resultado = LstFormaPgto.Where(x => x.Id == id).FirstOrDefault();
