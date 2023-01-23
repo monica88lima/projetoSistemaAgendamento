@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace SistemaAgendamentoIndividual.Services.CRUD
 {
-    internal class Exibir
+    public class Exibir
     {
+        public static void ExibirAgendamento()
+        {
+            Console.WriteLine("Entrou aqui");
+            Console.ReadKey();
+        }
     }
 }

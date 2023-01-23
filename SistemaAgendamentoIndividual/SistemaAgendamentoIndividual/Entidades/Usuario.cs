@@ -23,6 +23,15 @@ namespace SistemaAgendamentoIndividual.Entidades
             Sexo = sexo;
 
         }
+        public Usuario(string nome, long cpf, DateTime data_nascimento, long celular, int sexo, int senha)
+        {
+            Nome = nome;
+            CPF = cpf;
+            Data_Nascimento = data_nascimento;
+            Celular = celular;
+            Sexo = sexo;
+
+        }
 
 
 

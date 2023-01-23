@@ -1,4 +1,5 @@
-﻿using SistemaAgendamentoIndividual.Services;
+﻿using SistemaAgendamentoIndividual.Entidades;
+using SistemaAgendamentoIndividual.Services;
 using SistemaAgendamentoIndividual.Services.CRUD;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,9 @@ namespace SistemaAgendamentoIndividual.Metodos
                     new Entidades.Calendario()
                     {
                         Id = i,
-                        Data = DateTime.Now.AddDays(data).ToString("dd/MM/YYYY"),
+                        Data = DateTime.Now.AddDays(data).ToString("dd/MM/yyyy"),
                         Hora = new DateTime(2023, 12, 1, hora, 0, 0).AddHours(i).ToString("HH:mm"),
-                        Situacao = "L",
+                        Situacao = "Livre",
                         MedicoId = random.Next(1,42)
                     });
 
@@ -42,20 +43,17 @@ namespace SistemaAgendamentoIndividual.Metodos
             }
         }
 
-        public void ExibirCalendario()
+        public void ExibirCalendario(int idMedicoEscolhido)
         {
             var cabecalho = "Data                     Hora               Situação";
             var corpo = "";
-            //foreach (var item in LstCalendarios)
-            //{
-            //    corpo += $"{item.Data}        {item.Hora}          {item.Situacao} {Environment.NewLine}";
-            //}
 
-            for (int i = 1; i <= LstCalendarios.Count; i++)
+            List<Entidades.Calendario> listaFiltrada = LstCalendarios.FindAll(x => x.MedicoId == idMedicoEscolhido);
+            for (int i = 1; i <= listaFiltrada.Count; i++)
             {
-                foreach (var item in LstCalendarios)
+                foreach (var item in listaFiltrada)
                 {
-                    corpo += $"{i} {item.Data}        {item.Hora}          {item.Situacao} {Environment.NewLine}";
+                    corpo += $"{i} ----- {item.Data}        {item.Hora}          {item.Situacao} {Environment.NewLine}";
                 }
                 
             }
@@ -73,7 +71,7 @@ namespace SistemaAgendamentoIndividual.Metodos
             if (resultado == null)
             {
                 Console.WriteLine("Opção Inválida!");
-                ExibirCalendario();
+                ExibirCalendario(id);
             }
             else
             {

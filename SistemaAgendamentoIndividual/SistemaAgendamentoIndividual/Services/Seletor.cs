@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaAgendamentoIndividual.Services.CRUD;
-using 
 
 namespace SistemaAgendamentoIndividual.Services
 {
@@ -13,9 +12,9 @@ namespace SistemaAgendamentoIndividual.Services
 
         public static List<string> Alternativas { get; set; } = new List<string>() { "Novo Agendamento", "Verificar Agendamentos Realizados", "Sair" };
 
-        public static  void MostrarAlternativas()
+        public static void MostrarAlternativas()
         {
-            
+
             string descricaoMenu = "";
 
 
@@ -55,8 +54,12 @@ namespace SistemaAgendamentoIndividual.Services
                 case "Novo Agendamento":
                     CRUD.Agendar.CriarAgendamento();
                     break;
-                   
-                   
+
+                case "Verificar Agendamentos Realizados":
+                    CRUD.Exibir.ExibirAgendamento();
+                    break;
+
+
 
                 default:
                     break;

@@ -44,5 +44,20 @@ namespace SistemaAgendamentoIndividual.Metodos
             Console.WriteLine(mensagem);
         }
 
+        public Usuario LogarUsuario()
+        {
+            Console.WriteLine("Digite seu CPF:");
+            var CPF = Services.ValidarEConverterEntradaDeUsuario.ConverterParaLong();
+
+            
+            Console.WriteLine("Digite sua senha:");
+            var senha = Services.ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
+
+
+            return new Usuario("Michael Oliveira" , CPF, new DateTime(1987,01,12), 3196307731, 'M',senha );
+
+        }
+
+
     }
 }

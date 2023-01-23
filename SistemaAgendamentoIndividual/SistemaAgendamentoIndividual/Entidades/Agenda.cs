@@ -17,5 +17,9 @@ namespace SistemaAgendamentoIndividual.Entidades
         public DateTime Data_Marcada { get; set; }
         public DateTime Hora_Marcada { get; set; }
 
+        public Agenda(int frmPgto, int escolhaProced, int espec, int dr)
+        {
+
+        }
     }
 }

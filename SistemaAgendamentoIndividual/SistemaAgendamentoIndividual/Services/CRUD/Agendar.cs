@@ -10,7 +10,7 @@ namespace SistemaAgendamentoIndividual.Services.CRUD
 {
     public class Agendar
     {
-        public void CriarAgendamento()
+        public static void CriarAgendamento()
         {
             var usuario_pgto = new Metodos.FormaPgto_Metodo();
             int frmPgto = usuario_pgto.ExibirFormaPgto();
@@ -26,6 +26,11 @@ namespace SistemaAgendamentoIndividual.Services.CRUD
             var medico = new Medicos_Metodo();
             medico.Filtro(espec);
             int dr = medico.ColetarNomeMedico();
+
+            var calendario = new Calendario_Metodo();
+            calendario.ExibirCalendario(dr);
+
+
 
         }
         
