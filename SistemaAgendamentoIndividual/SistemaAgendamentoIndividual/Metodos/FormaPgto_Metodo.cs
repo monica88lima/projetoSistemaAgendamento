@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SistemaAgendamentoIndividual.Metodos
 {
-    public class FormaPgto_Metodo:IForma_Pgto
+    public class FormaPgto_Metodo
     {
         public List<Entidades.FormaPgto> LstFormaPgto { get; set; } = new();
         public FormaPgto_Metodo()

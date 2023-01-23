@@ -3,7 +3,9 @@ using SistemaAgendamentoIndividual.Services;
 using SistemaAgendamentoIndividual.Services.CRUD;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -17,50 +19,69 @@ namespace SistemaAgendamentoIndividual.Metodos
 
         public Calendario_Metodo()
         {
-            var hora = 8;
-            var data = 1;
-            var random = new Random();
-            for (int i = 1; i <= 42; i++)
-            {                
-                if (hora > 16)
+            string path = @"C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\agenda.txt";
+            using (StreamReader sr = File.OpenText(path))
+            {
+
+                while (!sr.EndOfStream)
                 {
-                    hora = 8;
-                    data++;
+                    LstCalendarios.Add(new Entidades.Calendario(sr.ReadLine()));
                 }
 
-                LstCalendarios.Add(
-                    new Entidades.Calendario()
-                    {
-                        Id = i,
-                        Data = DateTime.Now.AddDays(data).ToString("dd/MM/yyyy"),
-                        Hora = new DateTime(2023, 12, 1, hora, 0, 0).AddHours(i).ToString("HH:mm"),
-                        Situacao = "Livre",
-                        MedicoId = random.Next(1,42)
-                    });
+                //foreach (Entidades.Calendario item in LstCalendarios)
+                //{
+                //    Console.WriteLine($"Código: {item.Id}---- Data:{item.Data} ---- Hora:{item.Hora}");
 
-                hora++;
-                
+                //}
+
+                //var hora = 8;
+                //var data = 1;
+                //var random = new Random();
+                //for (int i = 1; i <= 43; i++)
+                //{
+                //    if (hora > 16)
+                //    {
+                //        hora = 8;
+                //        data++;
+                //    }
+
+                //    LstCalendarios.Add(
+                //        new Entidades.Calendario()
+                //        {
+                //            Id = i,
+                //            Data = DateTime.Now.AddDays(data).ToString("dd/MM/yyyy"),
+                //            Hora = new DateTime(2023, 12, 1, hora, 0, 0).AddHours(i).ToString("HH:mm"),
+                //            Situacao = "Livre",
+                //            MedicoId = random.Next(1, 42)
+
+                //        });
+                //    File.AppendAllText(path, $"{Environment.NewLine}{i},{DateTime.Now.AddDays(data).ToString("dd/MM/yyyy")},{new DateTime(2023, 12, 1, hora, 0, 0).AddHours(i).ToString("HH:mm")},Livre, {random.Next(1, 42)}");
+
+                //    hora++;
+
+
             }
         }
-
         public void ExibirCalendario(int idMedicoEscolhido)
         {
-            var cabecalho = "Data                     Hora               Situação";
+            var cabecalho = "Data    ";
             var corpo = "";
 
             List<Entidades.Calendario> listaFiltrada = LstCalendarios.FindAll(x => x.MedicoId == idMedicoEscolhido);
-            for (int i = 1; i <= listaFiltrada.Count; i++)
+
+
+            foreach (var item in listaFiltrada)
             {
-                foreach (var item in listaFiltrada)
-                {
-                    corpo += $"{i} ----- {item.Data}        {item.Hora}          {item.Situacao} {Environment.NewLine}";
-                }
-                
+                corpo += $"Código: {item.Id}---- Data:{item.Data} ---- Hora:{item.Hora} {Environment.NewLine}";
             }
+
+
             Console.WriteLine(cabecalho);
             Console.WriteLine(corpo);
             int retorno = ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
             ColetarCalendario(retorno);
+
+
         }
 
         public int ColetarCalendario(int id)
@@ -76,9 +97,17 @@ namespace SistemaAgendamentoIndividual.Metodos
             else
             {
                 retorno = id;
+                LstCalendarios.Remove(resultado);
+
             }
             return retorno;
             //esse retorno aqui tenho que mandar pra agenda metodo
         }
+
+
     }
+
+
+
 }
+
