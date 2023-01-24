@@ -97,12 +97,7 @@ namespace SistemaAgendamentoIndividual.Metodos
                 Console.WriteLine("Opção Inválida!");
                 ExibirCalendario(idMedico);
             }
-            else
-            {
-                
-                LstCalendarios.Remove(resultado);
-
-            }
+            
             return resultado;
             //esse retorno aqui tenho que mandar pra agenda metodo
         }

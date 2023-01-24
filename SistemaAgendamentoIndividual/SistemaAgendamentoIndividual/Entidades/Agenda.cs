@@ -3,26 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SistemaAgendamentoIndividual.Entidades
 {
     public  class Agenda:Base
     {
-        public int Nome_Usuario { get; set; }
-        public int Nome_Medico { get; set; }
-        public int Nome_Especialidade { get; set; }
-        public int Nome_Procedimento { get; set; }
-        public int FormaPgto { get; set; }
+        public int Id_Medico { get; set; }
+        public int Id_Especialidade { get; set; }
+        public int Id_procedimento { get; set; }
+        public int Id_FormaPgto { get; set; }
+        
+        public int Id_Calendario { get; set; }
         public DateTime DataCriacao { get; set; } = DateTime.Now;
 
-        public DateTime Data_Marcada { get; set; }
-        public DateTime Hora_Marcada { get; set; }
 
-        public Agenda(int frmPgto, int escolhaProced, int espec, int dr, Calendario dataEhora)
+        public Agenda()
         {
-            this.FormaPgto = frmPgto;
             
+            
+        }
 
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"{Id_Medico} - {Id_Especialidade} - {Id_procedimento} - {Id_FormaPgto}- {Id_Calendario} ");
         }
     }
 }

@@ -20,9 +20,8 @@ namespace SistemaAgendamentoIndividual.Services.CRUD
 
         public void FazerAgendamento()
         {
-             _agendamento.CriarAgendamento();
-            
-           
+            _agendamento.CriarAgendamento();
+
         }
     }
 }
