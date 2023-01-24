@@ -11,5 +11,6 @@ namespace SistemaAgendamentoIndividual.Interfaces
     {
         Usuario Cadastrar();
         void ExibirMensagemBoasVindas(string Nome);
+        Usuario LogarUsuario();
     }
 }

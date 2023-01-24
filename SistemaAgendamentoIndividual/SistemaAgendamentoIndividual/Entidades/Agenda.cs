@@ -8,17 +8,20 @@ namespace SistemaAgendamentoIndividual.Entidades
 {
     public  class Agenda:Base
     {
-        public string Nome_Usuario { get; set; }
-        public string Nome_Medico { get; set; }
-        public string Nome_Especialidade { get; set; }
-        public string Nome_Procedimento { get; set; }
-        public string Nome_FormaPgto { get; set; }
+        public int Nome_Usuario { get; set; }
+        public int Nome_Medico { get; set; }
+        public int Nome_Especialidade { get; set; }
+        public int Nome_Procedimento { get; set; }
+        public int FormaPgto { get; set; }
+        public DateTime DataCriacao { get; set; } = DateTime.Now;
 
         public DateTime Data_Marcada { get; set; }
         public DateTime Hora_Marcada { get; set; }
 
-        public Agenda(int frmPgto, int escolhaProced, int espec, int dr)
+        public Agenda(int frmPgto, int escolhaProced, int espec, int dr, Calendario dataEhora)
         {
+            this.FormaPgto = frmPgto;
+            
 
         }
     }

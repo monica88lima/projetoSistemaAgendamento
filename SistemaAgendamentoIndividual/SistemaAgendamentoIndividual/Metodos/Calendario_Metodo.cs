@@ -19,6 +19,7 @@ namespace SistemaAgendamentoIndividual.Metodos
 
         public Calendario_Metodo()
         {
+            //leitura do arquivo
             string path = @"C:\Users\rishi\source\repos\projetoSistemaAgendamento\SistemaAgendamentoIndividual\SistemaAgendamentoIndividual\agenda.txt";
             using (StreamReader sr = File.OpenText(path))
             {
@@ -64,7 +65,7 @@ namespace SistemaAgendamentoIndividual.Metodos
         }
         public void ExibirCalendario(int idMedicoEscolhido)
         {
-            var cabecalho = "Data    ";
+            var cabecalho = "Verifique agenda disponivel e indique o dia e horaraio que deseja agendar sua consulta: ";
             var corpo = "";
 
             List<Entidades.Calendario> listaFiltrada = LstCalendarios.FindAll(x => x.MedicoId == idMedicoEscolhido);
@@ -78,31 +79,34 @@ namespace SistemaAgendamentoIndividual.Metodos
 
             Console.WriteLine(cabecalho);
             Console.WriteLine(corpo);
-            int retorno = ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
-            ColetarCalendario(retorno);
+
+            ColetarCalendario(idMedicoEscolhido);
 
 
         }
 
-        public int ColetarCalendario(int id)
+        public Calendario ColetarCalendario(int idMedico)
         {
-            int retorno = 0;
-            var resultado = LstCalendarios.Where(x => x.Id == id).FirstOrDefault();
+            int retorno = ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
+            
+            var resultado = LstCalendarios.Where(x => x.Id == retorno).FirstOrDefault();
+
 
             if (resultado == null)
             {
                 Console.WriteLine("Opção Inválida!");
-                ExibirCalendario(id);
+                ExibirCalendario(idMedico);
             }
             else
             {
-                retorno = id;
+                
                 LstCalendarios.Remove(resultado);
 
             }
-            return retorno;
+            return resultado;
             //esse retorno aqui tenho que mandar pra agenda metodo
         }
+      
 
 
     }

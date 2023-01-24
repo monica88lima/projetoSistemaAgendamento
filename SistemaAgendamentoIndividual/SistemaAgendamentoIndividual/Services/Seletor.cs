@@ -52,14 +52,17 @@ namespace SistemaAgendamentoIndividual.Services
             switch (alternativaEscolhida)
             {
                 case "Novo Agendamento":
-                    CRUD.Agendar.CriarAgendamento();
+                    new CRUD.Agendar().FazerAgendamento();
                     break;
 
                 case "Verificar Agendamentos Realizados":
                     CRUD.Exibir.ExibirAgendamento();
                     break;
 
-
+                case "Sair":
+                    Environment.Exit(0);
+                    break;
+                    
 
                 default:
                     break;

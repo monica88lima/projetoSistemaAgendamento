@@ -24,6 +24,7 @@ namespace SistemaAgendamentoIndividual.Entidades
             MedicoId = int.Parse(vect[1]);
             Data = vect[2];
             Hora = vect[3];
+            Situacao = vect[4];
             
             
 

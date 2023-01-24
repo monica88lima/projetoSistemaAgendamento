@@ -16,7 +16,7 @@ namespace SistemaAgendamentoIndividual
 
                 do
                 {
-                    Console.WriteLine("Seja Bem Vindo(a):\nO que deseja fazer:\n(1)Criar Perfil\n(2)Acessar Perfil ");
+                    Console.WriteLine("\n\nSeja Bem Vindo(a): O que deseja fazer:\n\n(1)Criar Perfil\n(2)Acessar Perfil\n ");
 
 
                     retorno = Services.ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
@@ -34,6 +34,10 @@ namespace SistemaAgendamentoIndividual
                 }
                 else if (retorno == 2)
                 {
+                    var usuario = new Services.LoginUsuario();
+                    usuario.LogarUsuario();
+
+                    Services.Seletor.MostrarAlternativas();
 
                 }
 
