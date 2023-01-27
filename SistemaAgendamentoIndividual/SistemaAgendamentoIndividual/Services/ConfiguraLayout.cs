@@ -13,12 +13,12 @@ namespace SistemaAgendamentoIndividual.Services
             Console.Title = "GRUPO 2";
             Console.BackgroundColor = ConsoleColor.DarkCyan;
             Console.ForegroundColor = ConsoleColor.Black;
-
+            
             Console.Clear();
 
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("------- 《 Agedamento de Consulta 》 ------");
-            Console.WriteLine("-------------(☼ ☼ ☼)-------------");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine(" ------ 《 Agendamento de Consulta 》 ------");
+            Console.WriteLine("--------------------(☼ ☼ ☼)-----------------");
 
         }
 

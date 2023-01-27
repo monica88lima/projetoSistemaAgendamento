@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SistemaAgendamentoIndividual.Services.CRUD;
+using SistemaAgendamentoIndividual.Metodos;
+using SistemaAgendamentoIndividual.Services;
 
 namespace SistemaAgendamentoIndividual.Services
 {
@@ -23,14 +24,12 @@ namespace SistemaAgendamentoIndividual.Services
                 descricaoMenu += $"({i}) {Alternativas[i - 1]} {Environment.NewLine}";
             }
 
-            Console.WriteLine(descricaoMenu);
-            IniciarSessaoPosEscolha(EscolherMenu());
-            ConfiguraLayout.LayoutDoConsole();
+            Console.WriteLine(descricaoMenu);            
 
         }
 
         //METODO QUE VERIFICA SE A OPÇÃO DIGITADA NO MENU EXISTE NAS ALTERNATIVAS LISTADAS
-        private static string EscolherMenu()
+        public static string EscolherMenu()
         {
             int retorno = ValidarEConverterEntradaDeUsuario.ConverterParaNumero();
             bool itemExiste = retorno <= Alternativas.Count;
@@ -45,18 +44,19 @@ namespace SistemaAgendamentoIndividual.Services
                 Console.WriteLine("Menu não existe, por favor escolha um número válido.");
                 return EscolherMenu();
             }
-            //ConfiguraLayout.LayoutDoConsole();
+            
         }
-        private static void IniciarSessaoPosEscolha(string alternativaEscolhida)
+        public static void IniciarSessaoPosEscolha(string alternativaEscolhida, Agenda_Metodo agenda_Metodo)
         {
             switch (alternativaEscolhida)
             {
                 case "Novo Agendamento":
-                    new CRUD.Agendar().FazerAgendamento();
+                    agenda_Metodo.CriarAgendamento();
                     break;
 
                 case "Verificar Agendamentos Realizados":
-                    CRUD.Exibir.ExibirAgendamento();
+                    agenda_Metodo.ListarAgendamentos();
+                    Console.ReadKey();
                     break;
 
                 case "Sair":

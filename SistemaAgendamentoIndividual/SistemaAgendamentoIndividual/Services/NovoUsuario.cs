@@ -13,9 +13,9 @@ namespace SistemaAgendamentoIndividual.Services
     {
         private readonly IUsuario? _iusuario;
 
-        public NovoUsuario()
+        public NovoUsuario(Usuario_Metodo usuario_Metodo)
         {
-            _iusuario = new Usuario_Metodo();
+            _iusuario = usuario_Metodo;
         }
         public Usuario IniciarNovoPerfil()
         {

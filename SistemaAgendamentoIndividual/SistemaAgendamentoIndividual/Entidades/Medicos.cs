@@ -12,10 +12,7 @@ namespace SistemaAgendamentoIndividual.Entidades
         public string Nome { get; set; }
 
         public int Id_Especialidade { get; set; }
-        public string Nome_Especialidade { get; set; }
-
-        public int Id_Procedimento { get; set; }
-        public string Nome_Procedimento{ get; set; }
+        
 
         
 

@@ -1,6 +1,8 @@
 ﻿using SistemaAgendamentoIndividual.Entidades;
 using SistemaAgendamentoIndividual.Interfaces;
 using SistemaAgendamentoIndividual.Metodos;
+using SistemaAgendamentoIndividual.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemaAgendamentoIndividual
 {
@@ -9,7 +11,7 @@ namespace SistemaAgendamentoIndividual
         static void Main(string[] args)
         {
             Services.ConfiguraLayout.LayoutDoConsole();
-                       
+            Agenda_Metodo agenda_Metodo = new Agenda_Metodo();
             try
             {
                 int retorno = 0;
@@ -25,21 +27,21 @@ namespace SistemaAgendamentoIndividual
 
                 if (retorno == 1)
                 {
-                    var usuario = new Services.NovoUsuario();
-                    usuario.IniciarNovoPerfil();
-                                        
-                    Services.Seletor.MostrarAlternativas();
-                                        
-
+                    Usuario usuario = new Services.NovoUsuario(new Usuario_Metodo()).IniciarNovoPerfil();
                 }
                 else if (retorno == 2)
                 {
                     var usuario = new Services.LoginUsuario();
                     usuario.LogarUsuario();
 
-                    Services.Seletor.MostrarAlternativas();
-
                 }
+                while (true)
+                {
+                    Seletor.MostrarAlternativas();
+                    Seletor.IniciarSessaoPosEscolha(Services.Seletor.EscolherMenu(), agenda_Metodo);
+                    ConfiguraLayout.LayoutDoConsole();
+                }
+
 
 
             }

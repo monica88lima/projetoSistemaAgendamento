@@ -1,6 +1,6 @@
 ﻿using SistemaAgendamentoIndividual.Entidades;
 using SistemaAgendamentoIndividual.Services;
-using SistemaAgendamentoIndividual.Services.CRUD;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,37 +29,6 @@ namespace SistemaAgendamentoIndividual.Metodos
                     LstCalendarios.Add(new Entidades.Calendario(sr.ReadLine()));
                 }
 
-                //foreach (Entidades.Calendario item in LstCalendarios)
-                //{
-                //    Console.WriteLine($"Código: {item.Id}---- Data:{item.Data} ---- Hora:{item.Hora}");
-
-                //}
-
-                //var hora = 8;
-                //var data = 1;
-                //var random = new Random();
-                //for (int i = 1; i <= 43; i++)
-                //{
-                //    if (hora > 16)
-                //    {
-                //        hora = 8;
-                //        data++;
-                //    }
-
-                //    LstCalendarios.Add(
-                //        new Entidades.Calendario()
-                //        {
-                //            Id = i,
-                //            Data = DateTime.Now.AddDays(data).ToString("dd/MM/yyyy"),
-                //            Hora = new DateTime(2023, 12, 1, hora, 0, 0).AddHours(i).ToString("HH:mm"),
-                //            Situacao = "Livre",
-                //            MedicoId = random.Next(1, 42)
-
-                //        });
-                //    File.AppendAllText(path, $"{Environment.NewLine}{i},{DateTime.Now.AddDays(data).ToString("dd/MM/yyyy")},{new DateTime(2023, 12, 1, hora, 0, 0).AddHours(i).ToString("HH:mm")},Livre, {random.Next(1, 42)}");
-
-                //    hora++;
-
 
             }
         }
@@ -80,8 +49,6 @@ namespace SistemaAgendamentoIndividual.Metodos
             Console.WriteLine(cabecalho);
             Console.WriteLine(corpo);
 
-            ColetarCalendario(idMedicoEscolhido);
-
 
         }
 
@@ -91,13 +58,12 @@ namespace SistemaAgendamentoIndividual.Metodos
             
             var resultado = LstCalendarios.Where(x => x.Id == retorno).FirstOrDefault();
 
-
             if (resultado == null)
             {
                 Console.WriteLine("Opção Inválida!");
                 ExibirCalendario(idMedico);
             }
-            
+
             return resultado;
             //esse retorno aqui tenho que mandar pra agenda metodo
         }

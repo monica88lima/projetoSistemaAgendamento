@@ -16,6 +16,8 @@ namespace SistemaAgendamentoIndividual.Services
         {
             _iusuario = new Usuario_Metodo();
         }
+        //acoplamento
+        
         public Usuario LogarUsuario()
         {
             var usuarioExistente = _iusuario.LogarUsuario();

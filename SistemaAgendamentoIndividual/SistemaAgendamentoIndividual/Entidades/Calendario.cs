@@ -12,19 +12,19 @@ namespace SistemaAgendamentoIndividual.Entidades
         public int MedicoId { get; set; }
         public string Data { get; set; }
         public string Hora { get; set; }
-        public string Situacao { get; set; }
+       
         public Calendario()
         {
             
         }
-        public Calendario(string csvDicionario)
+        public Calendario(string csvArquivo)
         {
-            string[] vect = csvDicionario.Split(',');
+            string[] vect = csvArquivo.Split(',');
             Id = int.Parse(vect[0]);
             MedicoId = int.Parse(vect[1]);
             Data = vect[2];
             Hora = vect[3];
-            Situacao = vect[4];
+            //Situacao = vect[4];
             
             
 

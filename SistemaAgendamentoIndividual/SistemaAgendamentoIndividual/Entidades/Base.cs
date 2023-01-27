@@ -1,8 +1,10 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace SistemaAgendamentoIndividual.Entidades
 {
@@ -10,6 +12,7 @@ namespace SistemaAgendamentoIndividual.Entidades
     {
         public int Id { get; set; }
         public DateTime DataCriacao { get; set; } = DateTime.Now;
-        public bool Status { get; set; } = true;
+        public bool StatusSituacao { get; set; } = true;
+        
     }
 }

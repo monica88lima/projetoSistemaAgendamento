@@ -1,7 +1,7 @@
 ﻿using SistemaAgendamentoIndividual.Entidades;
 using SistemaAgendamentoIndividual.Interfaces;
 using SistemaAgendamentoIndividual.Services;
-using SistemaAgendamentoIndividual.Services.CRUD;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

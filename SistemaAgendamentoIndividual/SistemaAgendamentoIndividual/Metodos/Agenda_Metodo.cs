@@ -4,90 +4,98 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SistemaAgendamentoIndividual.Metodos
 {
     public class Agenda_Metodo : IAgenda
     {
+        
+
+        List<Agenda> LstAgenda = new();
+
+        FormaPgto_Metodo usuario_pgto = new Metodos.FormaPgto_Metodo();
+
+        Procedimentos_Metodo usuario_procedimento = new Metodos.Procedimentos_Metodo();
+
+        Medicos_Metodo usuario_medico = new Medicos_Metodo();
+
+        Especialidade_Metodo usuario_especialidade = new Especialidade_Metodo();
+
+        Calendario_Metodo usuario_calendario = new Calendario_Metodo();
+
+        //cadastra novo Usuario
         public void CriarAgendamento()
         {
-            var usuario_pgto = new Metodos.FormaPgto_Metodo();
-            int frmPgto = usuario_pgto.ExibirFormaPgto();
+            
+            int id_formaPgto = usuario_pgto.ExibirFormaPgto();
 
-            var usuario_procedimento = new Metodos.Procedimentos_Metodo();
-            int escolhaProced = usuario_procedimento.ExibirProcedimento();
-
-
-            var usuario_especialidade = new Especialidade_Metodo();
-            usuario_especialidade.Filtro(escolhaProced, frmPgto == 1, frmPgto == 2);
-            int espec = usuario_especialidade.ColetarEspecialidade();
+            int escolhaProcedimento = usuario_procedimento.ExibirProcedimento();
+                        
+            usuario_especialidade.Filtro(escolhaProcedimento, id_formaPgto == 1, id_formaPgto == 2);
+            int id_Especialidade = usuario_especialidade.ColetarEspecialidade();
 
 
-            var medico = new Medicos_Metodo();
-            medico.Filtro(espec);
-            int dr = medico.ColetarNomeMedico();
+            usuario_medico.Filtro(id_Especialidade);
+            int id_Medico = usuario_medico.ColetarNomeMedico();
 
 
-            var calendario = new Calendario_Metodo();
-            calendario.ExibirCalendario(dr);
-            var diaEHoraEscolhido = calendario.ColetarCalendario(dr);
+            usuario_calendario.ExibirCalendario(id_Medico);
+            var diaEHoraEscolhido = usuario_calendario.ColetarCalendario(id_Medico);
 
+            Agenda novoAgendamento = new Agenda();
+            novoAgendamento.Id = new Random().Next();
+            novoAgendamento.Id_FormaPgto = id_formaPgto;
+            novoAgendamento.Id_procedimento = escolhaProcedimento;
+            novoAgendamento.Id_Especialidade = id_Especialidade;
+            novoAgendamento.Id_Medico = id_Medico;
+            novoAgendamento.Id_Calendario = diaEHoraEscolhido.Id;
 
-            Agenda agendar = new Agenda();
-            CreateInstance(dr,escolhaProced,espec,frmPgto,diaEHoraEscolhido);
+            Gravar(novoAgendamento);
 
-            agendar.Id_Calendario = diaEHoraEscolhido.Id;
+            var cabecalho = "Agendamento Realizado com Sucesso!!!\nDetalhes do agendamento";
+            Console.WriteLine(cabecalho);
+            Exibir(novoAgendamento);
+            Console.WriteLine("Pressione qualquer tecla para retornar ao Menu Inicial");
+            Console.ReadKey();
+        }
 
+        public void Gravar(Agenda novoAgendamento)
+        {
+            LstAgenda.Add(novoAgendamento);
+                       
+        }
+
+        public void Exibir(Agenda agenda)
+        {
+            string nomeFormaPgto = usuario_pgto.LstFormaPgto.Find(x => x.Id == agenda.Id_FormaPgto).Tipo;
+            string nomeProcedimento = usuario_procedimento.LstProcedimentos.Find(x => x.Id == agenda.Id_procedimento).Tipo;
+            string nomeEspecialidade = usuario_especialidade.LstEspecialidades.Find(x => x.Id == agenda.Id_Especialidade).Nome;
+            string nomeMedico = usuario_medico.LstMedicos.Find(x => x.Id == agenda.Id_Medico).Nome;
+            var diaConsulta = usuario_calendario.LstCalendarios.Find(x => x.Id == agenda.Id_Calendario).Data;
+            var horaConsulta = usuario_calendario.LstCalendarios.Find(x => x.Id == agenda.Id_Calendario).Hora;            
+            var corpo = "";
+
+            corpo += $"Procedimento: {nomeProcedimento}\n" +
+                $"Especialidade:{nomeEspecialidade} ----  Medico:{nomeMedico}\n" +
+                $"Data :{diaConsulta} -- Horario:{horaConsulta}\n";          
+           
+            
+            Console.WriteLine(corpo);
+            
 
         }
 
-        public static void CreateInstance(int dr, int escolhaProced, int espec,int frmPgto, Calendario diaEHoraEscolhido)
+        public void ListarAgendamentos()
         {
-
-            Type cType = typeof(Agenda);
-            object consulta = Activator.CreateInstance(cType);
-
-            PropertyInfo medicoProperty = cType.GetProperty("Id_Medico");
-            PropertyInfo especialidadeProperty = cType.GetProperty("Id_Especialidade");
-            PropertyInfo procedimentoProperty = cType.GetProperty("Id_procedimento");
-            PropertyInfo formaPgtoProperty = cType.GetProperty("Id_FormaPgto");
-            PropertyInfo calendaroProperty = cType.GetProperty("Id_Calendario");
-
-
-            medicoProperty.SetValue(consulta, dr);
-            especialidadeProperty.SetValue(consulta, escolhaProced);
-            procedimentoProperty.SetValue(consulta, espec);
-            formaPgtoProperty.SetValue(consulta, frmPgto);
-            calendaroProperty.SetValue(consulta, diaEHoraEscolhido);
-
-
-            MethodInfo displayInfoMethod = cType.GetMethod("DisplayInfo");
-            displayInfoMethod.Invoke(consulta, null);
-
-            DisplayPublicProperties(consulta);
-
-        }
-
-        public static void DisplayPublicProperties(object obj)
-        {
-            var tipo = obj.GetType();
-
-            StringBuilder builder = new StringBuilder();
-            builder.AppendLine("Nome da Classe:" + tipo.Name);
-
-            foreach (var prop in tipo.GetProperties())
+            foreach (var item in LstAgenda)
             {
-                builder.AppendLine(prop.Name + ": " + prop.GetValue(obj));
+                Exibir(item);
             }
-            ImprimirLog(builder.ToString());
+            
         }
-        public static void ImprimirLog(string texto)
-        {
-            Console.WriteLine(texto);
-        }
-
-
     }
 }
